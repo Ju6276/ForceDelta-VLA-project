@@ -1,0 +1,63 @@
+:root { color-scheme: light; --ink:#22303a; --muted:#64717b; --blue:#38688b; --line:#dce3e8; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin:0; color:var(--ink); background:#fff; font:17px/1.75 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+a { color:var(--blue); }
+.hero { padding:65px 24px 46px; text-align:center; background:linear-gradient(180deg,#f0f6fa,white); }
+.section-label { margin:0 0 12px; color:var(--blue); font-size:12px; letter-spacing:.13em; text-transform:uppercase; font-weight:650; }
+h1 { margin:5px 0 13px; color:var(--blue); font-size:clamp(40px,6.5vw,70px); line-height:1.12; letter-spacing:-.045em; }
+.subtitle { max-width:960px; margin:0 auto; font:clamp(21px,3vw,29px)/1.4 Georgia,"Times New Roman",serif; }
+.authors { margin:19px 0 20px; color:var(--muted); font-size:15px; }
+nav { display:flex; flex-wrap:wrap; justify-content:center; gap:9px; }
+nav a { display:block; padding:7px 19px; border:1px solid var(--line); border-radius:5px; background:white; text-decoration:none; font-size:14px; line-height:1.5; }
+nav a:hover,nav a:focus-visible { border-color:var(--blue); background:#f1f6fa; }
+.lead { max-width:760px; margin:38px auto 0; font-size:23px; line-height:1.55; font-weight:600; }
+.lead span { color:var(--muted); font-size:19px; font-weight:400; }
+main { max-width:1120px; margin:auto; padding:0 28px; }
+section { margin:0 auto; padding:47px 0; border-top:1px solid var(--line); }
+.text-section { max-width:830px; margin-left:auto; margin-right:auto; }
+section .text-section { padding:0; }
+h2 { margin:0 0 20px; font:600 clamp(24px,3vw,32px)/1.3 Georgia,"Times New Roman",serif; letter-spacing:-.015em; }
+p { margin:0 0 16px; }
+.force-term,.delay-term { padding:2px 4px; border-radius:3px; white-space:nowrap; }
+.force-term { background:#fff0bb; }
+.delay-term { background:#e8e1f2; }
+figure { margin:30px auto 0; }
+figure img { display:block; width:100%; height:auto; max-width:100%; }
+.method-figure { border:1px solid var(--line); border-radius:7px; padding:17px; }
+figcaption { max-width:830px; margin:15px auto 0; color:var(--muted); font-size:14px; line-height:1.6; text-align:center; }
+.method-notes { display:grid; grid-template-columns:repeat(3,1fr); gap:25px; margin:29px 0 0; }
+.method-notes h3 { margin:0 0 7px; font-size:17px; }
+.method-notes p { margin:0; color:var(--muted); font-size:15px; line-height:1.65; }
+table { width:100%; border-collapse:collapse; margin:24px 0; font-size:16px; }
+caption { text-align:left; color:var(--muted); font-size:13px; padding:0 0 10px; }
+th,td { padding:13px 11px; text-align:left; border-bottom:1px solid var(--line); }
+thead th { color:var(--muted); font-size:12px; letter-spacing:.05em; text-transform:uppercase; }
+tbody th { width:43%; font-weight:500; }
+tbody th small { display:block; color:var(--muted); font-size:12px; font-weight:400; }
+td { position:relative; width:57%; text-align:right; isolation:isolate; }
+.bar { position:absolute; top:15px; bottom:15px; left:0; width:calc((100% - 70px) * var(--value)); z-index:-1; background:#e1e7ec; border-radius:3px; }
+.teacher { background:#c7dcec; }
+.complete { background:#cce0bf; }
+.ours th { color:#39622f; font-weight:650; }
+.attachment-link { margin:26px auto 0; text-align:center; }
+.attachment-link a { display:inline-block; padding:9px 18px; border:1px solid var(--line); border-radius:5px; text-decoration:none; }
+.attachment-link a:hover,.attachment-link a:focus-visible { border-color:var(--blue); background:#f1f6fa; }
+.attachment-link span { display:block; margin-top:7px; color:var(--muted); font-size:14px; }
+footer { margin:25px auto 0; padding:27px; border-top:1px solid var(--line); text-align:center; color:var(--muted); font-size:13px; }
+@media(max-width:620px) {
+  body { font-size:16px; line-height:1.7; }
+  .hero { padding:43px 20px 32px; }
+  main { padding:0 20px; }
+  section { padding:33px 0; }
+  .wide-only { display:none; }
+  .lead { font-size:20px; margin-top:27px; }
+  .lead span { font-size:16px; }
+  nav { gap:7px; }
+  nav a { padding:7px 12px; }
+  .method-figure { padding:7px; }
+  .method-notes { grid-template-columns:1fr; gap:18px; }
+  th,td { padding:11px 4px; font-size:14px; }
+  .bar { opacity:.75; }
+}
+@media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }

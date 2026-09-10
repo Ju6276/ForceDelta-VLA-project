@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="ForceDelta-VLA learns force and delay corrections to reusable reference actions for contact-rich manipulation.">
+  <title>ForceDelta-VLA</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="hero">
+    <h1>ForceDelta-VLA</h1>
+    <p class="subtitle">Distilling Force-Conditioned Action Corrections<br class="wide-only"> for Contact-Rich Manipulation</p>
+    <p class="authors">Anonymous Authors</p>
+    <nav aria-label="Page sections">
+      <a href="#overview">Overview</a>
+      <a href="#method">Method</a>
+      <a href="#results">Results</a>
+      <a href="#tasks">Tasks</a>
+      <a href="assets/task-execution.pdf">Supplementary Material (PDF)</a>
+    </nav>
+    <p class="lead">Reuse a reference action.<br><span>Update contact corrections as interaction changes.</span></p>
+  </header>
+
+  <main>
+    <section id="overview" class="text-section">
+      <p class="section-label">Overview</p>
+      <h2>Learning what to correct</h2>
+      <p>Force-aware vision-language-action policies typically predict task motion and contact-dependent adjustment together. Demonstrations provide the final action, without explicit labels that separate a reusable reference action from its correction.</p>
+      <p>ForceDelta-VLA constructs correction targets from paired predictions of a frozen teacher. A lightweight policy learns <span class="force-term">force correction</span> and <span class="delay-term">delay correction</span>, then adjusts reference actions using recent force history and robot state between reference updates.</p>
+    </section>
+
+    <section id="method">
+      <div class="text-section">
+        <p class="section-label">Method</p>
+        <h2>Paired teacher predictions supervise two corrections</h2>
+        <p>The force target is the pose difference between the teacher’s force-conditioned and learned force-agnostic predictions. The delay target compares the current force-agnostic prediction with the stored reference and includes reference-state alignment.</p>
+      </div>
+      <figure class="method-figure">
+        <img src="assets/method.svg" alt="Correction distillation: paired frozen-teacher predictions define force and delay targets; two evaluations of a shared student attention module predict the corrections." loading="lazy" width="1600" height="880">
+        <figcaption>Correction distillation, the third training stage. The student learns both targets while using the task context available during execution.</figcaption>
+      </figure>
+      <div class="method-notes">
+        <div><h3>Force correction</h3><p>Paired teacher predictions provide an explicit target for the change associated with force conditioning.</p></div>
+        <div><h3>Delay correction</h3><p>The target accounts for reference-action mismatch and the change in reference state.</p></div>
+        <div><h3>Independent execution</h3><p>The student updates corrections while the teacher generates the next reference action.</p></div>
+      </div>
+    </section>
+
+    <section id="results" class="text-section">
+      <p class="section-label">Real-robot results</p>
+      <h2>Nine tasks, two robot platforms</h2>
+      <p>The complete system achieves 82.2% mean success, compared with 54.4% for the original ForceVLA baseline. Direct execution of the Stage-1 Temporal Teacher achieves 70.6% using the same temporal force-aware backbone.</p>
+      <div class="results-table" role="region" aria-label="Mean task success">
+        <table>
+          <caption>Mean success across nine tasks; 20 trials per method and task.</caption>
+          <thead><tr><th scope="col">Method</th><th scope="col">Mean success</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">ForceVLA</th><td><span class="bar" style="--value:0.544"></span><span>54.4%</span></td></tr>
+            <tr><th scope="row">Temporal Teacher <small>Direct execution</small></th><td><span class="bar teacher" style="--value:0.706"></span><span>70.6%</span></td></tr>
+            <tr class="ours"><th scope="row">ForceDelta-VLA</th><td><span class="bar complete" style="--value:0.822"></span><strong>82.2%</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Relative to ForceVLA, mean peak contact force over successful trials is approximately 26% lower on both platforms. On Button Pressing, the Temporal Teacher already raises success from 50% to 80%; ForceDelta-VLA further increases it to 85%.</p>
+    </section>
+
+    <section id="tasks">
+      <div class="text-section">
+        <p class="section-label">Task collection</p>
+        <h2>Single-arm and bimanual manipulation</h2>
+        <p>The evaluation covers initial contact, precise insertion, motion against friction, and motion constrained by the environment.</p>
+      </div>
+      <figure>
+        <img src="assets/tasks.png" alt="Nine tasks: single-arm Object Flipping, USB Insertion, Cabinet Opening, Button Pressing and Whiteboard Wiping; bimanual Plug Removal, Plug Insertion, Drawer Opening and Whiteboard Wiping." loading="lazy" width="1400" height="1100">
+        <figcaption>The first five tasks use the single-arm platform; the remaining four use the bimanual platform.</figcaption>
+      </figure>
+      <p class="attachment-link"><a href="assets/task-execution.pdf">Supplementary Material (PDF)</a><span>Task Execution Sequences · Five phases for each of the nine tasks.</span></p>
+    </section>
+  </main>
+  <footer>ForceDelta-VLA · Anonymous Authors</footer>
+</body>
+</html>
