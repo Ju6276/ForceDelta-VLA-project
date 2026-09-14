@@ -61,3 +61,8 @@ footer { margin:25px auto 0; padding:27px; border-top:1px solid var(--line); tex
   .bar { opacity:.75; }
 }
 @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+h3 { margin:30px 0 10px; font-size:20px; line-height:1.4; }
+.result-note { color:var(--muted); font-size:14px; }
+figure a { display:block; }
+figure a:focus-visible { outline:3px solid var(--blue); outline-offset:5px; }
