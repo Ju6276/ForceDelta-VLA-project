@@ -7,7 +7,7 @@
   <meta name="referrer" content="no-referrer">
   <meta name="description" content="ForceDelta-VLA learns force and delay corrections to reusable reference actions for contact-rich manipulation.">
   <title>ForceDelta-VLA</title>
-  <link rel="stylesheet" href="assets/style.css?v=20260915">
+  <link rel="stylesheet" href="assets/style.css?v=20260915-tasks">
 </head>
 <body>
   <header class="hero">
@@ -89,9 +89,24 @@
         <h2>Task Execution Sequences</h2>
         <p>The evaluation covers 5 single-arm tasks and 4 bimanual tasks. Both platforms use robot-provided wrench estimates. Multi-view images, proprioception, and commanded actions are recorded at 30 Hz; force/torque histories are recorded at 100 Hz.</p>
       </div>
+      <div class="task-names text-section">
+        <div><h3>Single-arm</h3><ol>
+          <li>Object Flipping</li>
+          <li>USB Insertion</li>
+          <li>Cabinet Opening</li>
+          <li>Button Pressing</li>
+          <li>Whiteboard Wiping</li>
+        </ol></div>
+        <div><h3>Bimanual</h3><ol start="6">
+          <li>Plug Removal</li>
+          <li>Plug Insertion</li>
+          <li>Drawer Opening</li>
+          <li>Whiteboard Wiping</li>
+        </ol></div>
+      </div>
       <figure>
-        <img src="assets/tasks.png" alt="Nine tasks: single-arm Object Flipping, USB Insertion, Cabinet Opening, Button Pressing and Whiteboard Wiping; bimanual Plug Removal, Plug Insertion, Drawer Opening and Whiteboard Wiping." loading="lazy" width="8783" height="6579">
-        <figcaption>The first five tasks use the single-arm platform; the remaining four use the bimanual platform.</figcaption>
+        <a href="assets/task-execution-sequences.png" target="_blank" rel="noopener" aria-label="Open all nine task execution sequences at full size"><img src="assets/task-execution-sequences.png" alt="Nine task execution sequences, in the order listed above. Each row shows five successive phases from left to right." loading="lazy" width="4018" height="5686"></a>
+        <figcaption>Each row shows five execution phases of one task, from left to right. Rows follow the task order listed above: 5 single-arm tasks, then 4 bimanual tasks.</figcaption>
       </figure>
       <p class="attachment-link"><a href="assets/task-execution.pdf">Task Execution Sequences (PDF)</a><span>Task Execution Sequences · Five phases for each of the nine tasks.</span></p>
     </section>
